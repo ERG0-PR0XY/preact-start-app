@@ -39,7 +39,7 @@ module.exports = {
     },
 
     plugins: [
-        new ExtractTextPlugin('public/css/styles.css', { allChunks : true})
+        new ExtractTextPlugin('../css/styles.css', { allChunks : true})
     ],
 
     watch: true

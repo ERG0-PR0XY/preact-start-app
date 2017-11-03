@@ -1,5 +1,5 @@
 import { h, Component} from 'preact';
-// import './comp-label.less';
+import './comp-label.less';
 
 export default class CompLabel extends Component {
     // constructor() {
