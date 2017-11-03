@@ -15,7 +15,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.jsx?/i,
+                test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
@@ -29,14 +29,17 @@ module.exports = {
                     ]
                 }
             }, {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+                test : /\.(less|css)$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'less-loader']
+                })
             }
         ]
     },
 
     plugins: [
-        new ExtractTextPlugin("css/styles.css")
+        new ExtractTextPlugin('public/css/styles.css', { allChunks : true})
     ],
 
     watch: true

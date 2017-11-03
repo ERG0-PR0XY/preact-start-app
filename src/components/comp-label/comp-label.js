@@ -1,5 +1,5 @@
 import { h, Component} from 'preact';
-import '../../component-css/comp-label/comp-label.css';
+// import './comp-label.less';
 
 export default class CompLabel extends Component {
     // constructor() {
@@ -12,6 +12,6 @@ export default class CompLabel extends Component {
     render(props, state) {
         return(
             <label>{this.props.text}</label>
-        )
+        );
     }
 }
