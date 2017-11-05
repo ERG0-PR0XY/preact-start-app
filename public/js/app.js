@@ -1080,9 +1080,13 @@ var _compLabel = __webpack_require__(3);
 
 var _compLabel2 = _interopRequireDefault(_compLabel);
 
-var _compButton = __webpack_require__(9);
+var _compButton = __webpack_require__(5);
 
 var _compButton2 = _interopRequireDefault(_compButton);
+
+var _compListitem = __webpack_require__(6);
+
+var _compListitem2 = _interopRequireDefault(_compListitem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1104,6 +1108,7 @@ var App = function (_Component) {
     _createClass(App, [{
         key: 'render',
         value: function render() {
+            var data = [{ id: '1', name: 'test-01' }, { id: '2', name: 'test-02' }];
             return (0, _preact.h)(
                 'div',
                 null,
@@ -1113,7 +1118,8 @@ var App = function (_Component) {
                     'Real world'
                 ),
                 (0, _preact.h)(_compLabel2.default, { text: 'Hello Again' }),
-                (0, _preact.h)(_compButton2.default, { label: 'Click me' })
+                (0, _preact.h)(_compButton2.default, { label: 'Click me' }),
+                (0, _preact.h)(_compListitem2.default, { data: data })
             );
         }
     }]);
@@ -1186,11 +1192,7 @@ exports.default = CompLabel;
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1223,11 +1225,15 @@ var CompButton = function (_Component) {
         key: 'render',
         value: function render(props, state) {
             return (0, _preact.h)(
-                'button',
-                { onClick: function onClick(e) {
-                        return alert('hi!');
-                    } },
-                this.props.label
+                'div',
+                null,
+                (0, _preact.h)(
+                    'button',
+                    { 'class': 'mui-btn mui-btn--primary mui-btn--raised', onClick: function onClick(e) {
+                            return alert('hi!');
+                        } },
+                    this.props.label
+                )
             );
         }
     }]);
@@ -1237,6 +1243,82 @@ var CompButton = function (_Component) {
 
 exports.default = CompButton;
 ;
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _preact = __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CompListItem = function (_Component) {
+    _inherits(CompListItem, _Component);
+
+    function CompListItem() {
+        _classCallCheck(this, CompListItem);
+
+        //  Set the initial data
+        var _this = _possibleConstructorReturn(this, (CompListItem.__proto__ || Object.getPrototypeOf(CompListItem)).call(this));
+
+        _this.state.data = [];
+        return _this;
+    }
+
+    _createClass(CompListItem, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {}
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            this.setState({
+                data: this.props.data
+            });
+            // console.log(this.state.data);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {}
+    }, {
+        key: 'render',
+        value: function render() {
+            var data = this.state.data;
+            return (0, _preact.h)(
+                'div',
+                null,
+                (0, _preact.h)(
+                    'ol',
+                    null,
+                    data.map(function (item, index) {
+                        //    console.log(index);
+                        return (0, _preact.h)(
+                            'li',
+                            { id: item.id },
+                            item.name
+                        );
+                    })
+                )
+            );
+        }
+    }]);
+
+    return CompListItem;
+}(_preact.Component);
+
+exports.default = CompListItem;
 
 /***/ })
 /******/ ]);

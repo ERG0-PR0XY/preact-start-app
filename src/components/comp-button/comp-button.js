@@ -1,11 +1,13 @@
-import {h,Component} from 'preact';
+import {h, Component} from 'preact';
 
 export default class CompButton extends Component {
     render(props, state) {
         return (
-            <button onClick={ e => alert('hi!') }>
-                {this.props.label}
-            </button>
+            <div>
+                <button class="mui-btn mui-btn--primary mui-btn--raised" onClick={e => alert('hi!')}>
+                    {this.props.label}
+                </button>
+            </div>
         );
     }
 };
