@@ -30,7 +30,7 @@ export default class CompListItem extends Component {
                 <ol>
                    { data.map(function(item, index) {
                     //    console.log(index);
-                        return <li id={item.id}>{item.name}</li>
+                        return <li id={item.id} onClick={e => console.log(item)}>{item.name}</li>
                     })}
                 </ol>
             </div>

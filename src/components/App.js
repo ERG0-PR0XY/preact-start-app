@@ -6,8 +6,8 @@ import CompListItem from './comp-listitem/comp-listitem';
 export default class App extends Component {
     render() {
         var data = [
-            {id:'1',name:'test-01'},
-            {id:'2',name:'test-02'}
+            {id:'1',name:'test-01',value:'testing field 1'},
+            {id:'2',name:'test-02',value:'testing field 2'}
         ];
         return (
             <div>

@@ -1108,7 +1108,7 @@ var App = function (_Component) {
     _createClass(App, [{
         key: 'render',
         value: function render() {
-            var data = [{ id: '1', name: 'test-01' }, { id: '2', name: 'test-02' }];
+            var data = [{ id: '1', name: 'test-01', value: 'testing field 1' }, { id: '2', name: 'test-02', value: 'testing field 2' }];
             return (0, _preact.h)(
                 'div',
                 null,
@@ -1306,7 +1306,9 @@ var CompListItem = function (_Component) {
                         //    console.log(index);
                         return (0, _preact.h)(
                             'li',
-                            { id: item.id },
+                            { id: item.id, onClick: function onClick(e) {
+                                    return console.log(item);
+                                } },
                             item.name
                         );
                     })
