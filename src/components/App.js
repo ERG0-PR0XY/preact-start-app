@@ -2,6 +2,7 @@ import { h, Component } from 'preact';
 import CompLabel from './comp-label/comp-label';
 import CompButton from './comp-button/comp-button';
 import CompListItem from './comp-listitem/comp-listitem';
+import CompInput from './comp-input/comp-input';
 
 export default class App extends Component {
     render() {
@@ -14,9 +15,10 @@ export default class App extends Component {
                 <h1>
                     Real world
                 </h1>
-                <CompLabel text='Hello Again'/>
+                {<CompLabel text='Hello Again'/>}
                 <CompButton label='Click me'/>
                 <CompListItem data={data}/>
+                <CompInput label='Test label'/>
             </div>
         )
     }

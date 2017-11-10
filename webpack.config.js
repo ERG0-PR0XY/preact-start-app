@@ -19,7 +19,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: ['latest'],
+                    presets: ['env'],
                     plugins: [
                         [
                             'transform-react-jsx', {
